@@ -19,9 +19,16 @@ defmodule Issues.CLI do
     end
 
     def process({user,project,_count}) do
-        Issues.GithubIssues.fetch(user, project)
+        Issues.GithubIssues.fetch(user, project) 
+            |> decode_response()
     end
 
+    def decode_response({:ok, body}), do: body
+
+    def decode_response({:error, error}) do
+        IO.puts "Error fetching from Github: #{error["message"]}"
+        System.halt(2)
+    end
 
     @doc """
     `argv` can be -h or --help, which returns :help.

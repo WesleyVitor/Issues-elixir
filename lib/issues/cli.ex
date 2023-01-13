@@ -7,7 +7,7 @@ defmodule Issues.CLI do
     table of the last _n_ issues in a github project
     """
 
-    def run(argv) do
+    def main(argv) do
         argv
         |> parse_args
         |> process
@@ -23,6 +23,11 @@ defmodule Issues.CLI do
             |> decode_response()
             |> sort_into_descending_order()
             |> last(count)
+            |> print()
+    end
+
+    def print(list) do
+        IO.inspect list
     end
 
     def last(list, count) do

@@ -1,9 +1,9 @@
 # Issues
 
-Aplication to fetch issues of some project from github api using elixir
+Application to fetch issues of some project from github api using elixir
 
 
-## How run the aplication
+## How run the application
 
 For Install the dependences so copy:
 
@@ -12,7 +12,7 @@ mix deps.get
 ```
 
 
-For build aplication so copy:
+For build application so copy:
 
 ```bash
 mix escript.build
